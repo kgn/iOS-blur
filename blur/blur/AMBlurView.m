@@ -26,8 +26,7 @@
     return self;
 }
 
-- (id)init
-{
+- (id)init {
     self = [super init];
     if (self) {
         [self setup];
@@ -52,8 +51,10 @@
     [self setBackgroundColor:[UIColor clearColor]];
 }
 
-- (void) setBlurTintColor:(UIColor *)blurTintColor {
+- (void)setBlurTintColor:(UIColor *)blurTintColor {
+#if __IPHONE_OS_VERSION_MAX_ALLOWED >= 70000
     [self.toolBar setBarTintColor:blurTintColor];
+#endif
 }
 
 - (void)setFrame:(CGRect)frame {
