@@ -18,24 +18,7 @@
 
 @implementation AMBlurView
 
-- (instancetype)initWithCoder:(NSCoder *)aDecoder {
-    self = [super initWithCoder:aDecoder];
-    if (self) {
-        [self setup];
-    }
-    return self;
-}
-
-- (instancetype)initWithFrame:(CGRect)frame {
-    self = [super initWithFrame:frame];
-    if (self) {
-        [self setup];
-    }
-    return self;
-}
-
-- (instancetype)init
-{
+- (instancetype)init {
     self = [super init];
     if (self) {
         [self setup];
@@ -60,8 +43,10 @@
     [self setBackgroundColor:[UIColor clearColor]];
 }
 
-- (void) setBlurTintColor:(UIColor *)blurTintColor {
-    [self.toolbar setBarTintColor:blurTintColor];
+- (void)setBlurTintColor:(UIColor *)blurTintColor {
+#if __IPHONE_OS_VERSION_MAX_ALLOWED >= 70000
+    [self.toolBar setBarTintColor:blurTintColor];
+#endif
 }
 
 - (void)setFrame:(CGRect)frame {
