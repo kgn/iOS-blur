@@ -10,6 +10,9 @@
 
 @interface AMBlurView : UIView
 
++ (instancetype)blurViewWithFrame:(CGRect)frame;
++ (instancetype)blurViewWithFrame:(CGRect)frame andBlurTintColor:(UIColor *)blurTintColor;
+
 // Use the following property to set the tintColor. Set it to nil to reset.
 @property (nonatomic, strong) UIColor *blurTintColor;
 

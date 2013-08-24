@@ -18,6 +18,19 @@
 
 @implementation AMBlurView
 
++ (instancetype)blurViewWithFrame:(CGRect)frame{
+    AMBlurView *blurView = [AMBlurView new];
+    blurView.frame = frame;
+    return blurView;
+}
+
++ (instancetype)blurViewWithFrame:(CGRect)frame andBlurTintColor:(UIColor *)blurTintColor{
+    AMBlurView *blurView = [AMBlurView new];
+    blurView.frame = frame;
+    blurView.blurTintColor = blurTintColor;
+    return blurView;
+}
+
 - (instancetype)init {
     self = [super init];
     if (self) {
@@ -45,7 +58,7 @@
 
 - (void)setBlurTintColor:(UIColor *)blurTintColor {
 #if __IPHONE_OS_VERSION_MAX_ALLOWED >= 70000
-    [self.toolBar setBarTintColor:blurTintColor];
+    [self.toolbar setBarTintColor:blurTintColor];
 #endif
 }
 
